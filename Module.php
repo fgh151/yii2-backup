@@ -2,7 +2,7 @@
 
 namespace fgh151\modules\backup;
 
-class Module extends \yii\base\Module
+class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 {
    public $controllerNamespace = 'fgh151\modules\backup\controllers';
 
@@ -25,5 +25,12 @@ class Module extends \yii\base\Module
     public static function t($category, $message, $params = [], $language = null)
     {
         return \Yii::t('modules/backup/' . $category, $message, $params, $language);
+    }
+
+    public function bootstrap($app)
+    {
+        if ($app instanceof \yii\console\Application) {
+            $this->controllerNamespace = 'fgh151\modules\backup\commands';
+        }
     }
 }

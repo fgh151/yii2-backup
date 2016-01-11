@@ -72,3 +72,5 @@ Usage
 Pretty Url's ```/backup```
 
 No pretty Url's ```index.php?r=backup```
+
+Console ```yii backup/backup```

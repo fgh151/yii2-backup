@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist spanjeta/yii2-backup "*"
+php composer.phar require --prefer-dist fgh151/yii2-backup "*"
 ```
 
 or add
 
 ```
-"spanjeta/yii2-backup": "*"
+"fgh151/yii2-backup": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -34,7 +34,7 @@ Advanced ```[backend|frontend|common]/config/main.php```
 >
         'modules'    => [
             'backup' => [
-                'class' => 'spanjeta\modules\backup\Module',
+                'class' => 'fgh151\modules\backup\Module',
             ],
             ...
             ...

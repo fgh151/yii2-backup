@@ -1,3 +1,5 @@
+Русская документация доступна на сайте [OpenItStudio](https://openitstudio.ru/portfolio/48.html)
+
 Yii2 Backup and Restore Database
 ===================
 Database Backup and Restore functionality

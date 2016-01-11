@@ -1,8 +1,10 @@
 {
     "name": "fgh151/yii2-backup",
+    "version": "1.0.0",
     "description": "Database Backup and Restore functionality",
     "type": "yii2-extension",
     "keywords": ["yii2","Database", "Backup","Restore"],
+    "homepage": "http://openitstudio.ru",
     "license": "Apache-2.0",
     "authors": [
         {

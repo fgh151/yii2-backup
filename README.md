@@ -42,6 +42,30 @@ Advanced ```[backend|frontend|common]/config/main.php```
 
 make sure you create a writable directory named _backup on app root directory.
 
+RBAC
+----
+
+You can use RBAC with module. Simply add it in your config:
+
+```
+>
+        'modules'    => [
+             'roles' => [
+                    'class' => 'fgh151\modules\backup\Module',
+                    'as access' => [
+                        'class' => 'yii\filters\AccessControl',
+                        'rules' => [
+                            [
+                                'allow' => true,
+                                'roles' => ['Administrator'],
+                            ]
+                        ]
+                    ],
+            ...
+            ...
+        ],
+```
+
 Usage
 -----
 

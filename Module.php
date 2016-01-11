@@ -1,10 +1,10 @@
 <?php
 
-namespace spanjeta\modules\backup;
+namespace fgh151\modules\backup;
 
 class Module extends \yii\base\Module
 {
-   public $controllerNamespace = 'spanjeta\modules\backup\controllers';
+   public $controllerNamespace = 'fgh151\modules\backup\controllers';
 
     public function init()
     {

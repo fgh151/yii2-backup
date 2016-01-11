@@ -8,11 +8,11 @@ use yii\widgets\ActiveForm;
 
 
 $this->params['breadcrumbs'][]= [
-'label'	=> 'Upload',
+'label'	=> \fgh151\modules\backup\Module::t('backup', 'Загрузить'),
 'url'	=> array('upload'),
 ];?>
 
-<h1>Upload</h1>
+<h1><?php echo \fgh151\modules\backup\Module::t('backup', 'Загрузить');?></h1>
 
 
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][]= [
 
 <div class="form-group">
     <?=
-    Html::submitButton( 'Save' ,
+    Html::submitButton( \fgh151\modules\backup\Module::t('backup', 'Загрузить') ,
         ['class' => 'btn btn-success']
     ) ?>
 </div>

@@ -7,15 +7,31 @@ echo GridView::widget([
 	'dataProvider' => $dataProvider,
 
 	'columns' => array(
-		'name',
-		'size:size',
-		'create_time',
-		'modified_time:relativeTime',
+		[
+			'attribute' => \fgh151\modules\backup\Module::t('backup', 'Имя'),
+			'format' => 'raw',
+			'value' => 'name'
+		],
+		[
+			'attribute' => \fgh151\modules\backup\Module::t('backup', 'Размер'),
+			'format' => 'size',
+			'value' => 'size'
+		],
+		[
+			'attribute' => \fgh151\modules\backup\Module::t('backup', 'Дата создания'),
+			'format' => 'raw',
+			'value' => 'create_time'
+		],
+		[
+			'attribute' => \fgh151\modules\backup\Module::t('backup', 'Дата изменения'),
+			'format' => 'relativeTime',
+			'value' => 'modified_time'
+		],
 		array(
 			'class' => 'yii\grid\ActionColumn',
 			'template' => '{restore}',
 			'buttons' => ['restore' => function ($url, $model, $key) {
-				return Html::a('<span class="glyphicon glyphicon-circle-arrow-left"></span>', $url, ['title' => 'Restore']);
+				return Html::a('<span class="glyphicon glyphicon-circle-arrow-left"></span>', $url, ['title' => \fgh151\modules\backup\Module::t('backup', 'Восстановить')]);
 			}
 			],
 
@@ -25,7 +41,7 @@ echo GridView::widget([
 			'class' => 'yii\grid\ActionColumn',
 			'template' => '{download}',
 			'buttons' => ['download' => function ($url, $model, $key) {
-				return Html::a('<span class="glyphicon glyphicon-download"></span>', $url, ['title' => 'Download']);
+				return Html::a('<span class="glyphicon glyphicon-download"></span>', $url, ['title' => \fgh151\modules\backup\Module::t('backup', 'Скачать')]);
 			}
 			],
 		),

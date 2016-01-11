@@ -2,6 +2,7 @@
 
 namespace fgh151\modules\backup\models;
 
+use fgh151\modules\backup\Module;
 use yii\base\Model;
 
 /**
@@ -41,7 +42,7 @@ class UploadForm extends Model
 	public function attributeLabels()
 	{
 		return array(
-				'upload_file'=>'Upload File',
+				'upload_file'=>Module::t('backup', 'Загрузить'),
 		);
 	}
 	public static function label($n = 1) {

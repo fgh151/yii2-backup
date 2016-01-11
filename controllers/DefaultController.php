@@ -2,6 +2,7 @@
 
 namespace fgh151\modules\backup\controllers;
 
+use fgh151\modules\backup\Module;
 use Yii;
 use yii\web\Controller;
 use fgh151\modules\backup\models\UploadForm;
@@ -265,6 +266,7 @@ class DefaultController extends Controller
 	}
 	public function actionIndex()
 	{
+		$dataArray = [];
 		//$this->layout = 'column1';
 		$this->updateMenuItems();
 		
@@ -329,26 +331,26 @@ class DefaultController extends Controller
 		{
 			case 'restore':
 				{
-					$this->menu[] = array('label'=>Yii::t('app', 'View Site') , 'url'=>Yii::$app->HomeUrl);
+					$this->menu[] = array('label'=>Module::t('backup', 'Просмотр сайта') , 'url'=>Yii::$app->HomeUrl);
 				}
 			case 'create':
 				{
-					$this->menu[] = array('label'=>Yii::t('app', 'List Backup') , 'url'=>array('index'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Список резервных копий') , 'url'=>array('index'));
 				}
 				break;
 			case 'upload':
 				{
-					$this->menu[] = array('label'=>Yii::t('app', 'Create Backup') , 'url'=>array('create'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Создать') , 'url'=>array('create'));
 				}
 				break;
 			default:
 				{
-					$this->menu[] = array('label'=>Yii::t('app', 'List Backup') , 'url'=>array('index'));
-					$this->menu[] = array('label'=>Yii::t('app', 'Create Backup') , 'url'=>array('create'));
-					$this->menu[] = array('label'=>Yii::t('app', 'Upload Backup') , 'url'=>array('upload'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Список резервных копий') , 'url'=>array('index'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Создать') , 'url'=>array('create'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Загрузить') , 'url'=>array('upload'));
 				//	$this->menu[] = array('label'=>Yii::t('app', 'Restore Backup') , 'url'=>array('restore'));
-					$this->menu[] = array('label'=>Yii::t('app', 'Clean Database') , 'url'=>array('clean'));
-					$this->menu[] = array('label'=>Yii::t('app', 'View Site') , 'url'=>Yii::$app->HomeUrl);
+					$this->menu[] = array('label'=>Module::t('backup', 'Очистить БД') , 'url'=>array('clean'));
+					$this->menu[] = array('label'=>Module::t('backup', 'Просмотр сайта') , 'url'=>Yii::$app->HomeUrl);
 				}
 				break;
 		}

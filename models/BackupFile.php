@@ -2,6 +2,7 @@
 
 namespace fgh151\modules\backup\models;
 
+use fgh151\modules\backup\Module;
 use yii\base\Model;
 
 /**
@@ -41,10 +42,10 @@ class BackupFile extends Model
 	public function attributeLabels()
 	{
 		return array(
-				'name'=>'File Name',
-				'size'=>'File Size',
-				'create_time'=>'Create Time',
-				'modified_time'=>'Modified Time',
+				'name'=> Module::t('backup', 'Имя'),
+				'size'=> Module::t('backup', 'Размер'),
+				'create_time'=>Module::t('backup', 'Дата создания'),
+				'modified_time'=> Module::t('backup', 'Изменено'),
 		);
 	}
 	public static function label($n = 1) {

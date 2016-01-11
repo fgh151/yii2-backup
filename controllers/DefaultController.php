@@ -26,6 +26,8 @@ class DefaultController extends Controller
 
 		if ( !file_exists($this->_path ))
 		{
+			if (!is_writable($this->_path ))
+				throw new \yii\web\ServerErrorHttpException(Module::t('backup', 'Нет прав для создания папки: '.$this->_path));
 			mkdir($this->_path );
 			chmod($this->_path, '777');
 		}
@@ -232,23 +234,27 @@ class DefaultController extends Controller
 			if ( file_exists($sqlFile))
 				unlink($sqlFile);
 		}
-		else throw new HttpException(404, Yii::t('app', 'File not found'));
+		else throw new \yii\web\NotFoundHttpException(Module::t('backup', 'Файл не найден'));
 		return $this->actionIndex();
 	}
 
-	public function actionDownload($file = null)
+	public function actionDownload($id = null)
 	{
+		$list = $this->getFileList();
+		$file = $list[$id];
 		$this->updateMenuItems();
 		if ( isset($file))
 		{
 			$sqlFile = $this->path . basename($file);
 			if ( file_exists($sqlFile))
 			{
-				$request = Yii::$app->getRequest();
-				$request->sendFile(basename($sqlFile),file_get_contents($sqlFile));
+				$request = Yii::$app->response;
+				$request->sendFile($sqlFile);
+				$request->send();
+				$this->redirect('index');
 			}
 		}
-		throw new HttpException(404, Yii::t('app', 'File not found'));
+		throw new \yii\web\NotFoundHttpException(Module::t('backup', 'Файл не найден') . ' ' .$file);
 	}
 
 	protected function getFileList()

@@ -23,5 +23,8 @@ return [
     'Имя' => 'Name',
     'Размер' => 'Size',
     'Дата создания' => 'Create Time',
-    'Дата изменения' => 'Modified Time'
+    'Дата изменения' => 'Modified Time',
+    'Готово' => 'Done',
+    'Нет прав для создания папки: ' => 'I do not have permissions to create the folder: ',
+    'Файл не найден' => 'File not found'
 ];

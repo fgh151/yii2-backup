@@ -51,7 +51,7 @@ You can use RBAC with module. Simply add it in your config:
 >
         'modules'    => [
              'backup' => [
-                         'class' => 'fgh151\modules\backup\Module',
+                    'class' => 'fgh151\modules\backup\Module',
               		'as access' => [
                              'class' => 'yii\filters\AccessControl',
                              'rules' => [

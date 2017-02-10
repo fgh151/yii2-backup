@@ -11,7 +11,7 @@ use yii\base\Model;
  * Yii module to backup, restore databse
  *
  * @version 1.0
- * @author Shiv Charan Panjeta <shiv@toxsl.com> <shivcharan.panjeta@gmail.com>
+ * Fedor B Gorsky <fedor@support-pc.org>
  */
 /**
  * UploadForm class.
@@ -48,6 +48,11 @@ class BackupFile extends Model
 				'modified_time'=> Module::t('backup', 'Изменено'),
 		);
 	}
+
+    /**
+     * @param int $n
+     * @return mixed
+     */
 	public static function label($n = 1) {
 		return Yii::t('app', 'Backup File|Backup Files', $n);
 	}

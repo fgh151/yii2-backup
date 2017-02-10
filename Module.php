@@ -2,16 +2,27 @@
 
 namespace fgh151\modules\backup;
 
-class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
+use yii\console\Application;
+use yii\base\BootstrapInterface;
+use yii\base\Module as BaseModule;
+
+/**
+ * Class Module
+ * @package fgh151\modules\backup
+ *
+ * @property null|string $path
+ */
+class Module extends BaseModule implements BootstrapInterface
 {
-   public $controllerNamespace = 'fgh151\modules\backup\controllers';
+
+    public $path;
 
     public function init()
     {
+        $this->controllerNamespace = 'fgh151\modules\backup\controllers';
         parent::init();
         $this->registerTranslations();
     }
-
 
     public function registerTranslations()
     {
@@ -29,7 +40,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
     public function bootstrap($app)
     {
-        if ($app instanceof \yii\console\Application) {
+        if ($app instanceof Application) {
             $this->controllerNamespace = 'fgh151\modules\backup\commands';
         }
     }

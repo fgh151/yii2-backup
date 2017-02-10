@@ -8,44 +8,51 @@ use yii\base\Model;
 /**
  * Backup
  *
- * Yii module to backup, restore databse
+ * Yii module to backup, restore database
  *
  * @version 1.0
- * @author Shiv Charan Panjeta <shiv@toxsl.com> <shivcharan.panjeta@outlook.com>
+ * @author Fedor B Gorsky <fedor@support-pc.org>
  */
+
 /**
  * UploadForm class.
  * UploadForm is the data structure for keeping
  */
 class UploadForm extends Model
 {
-	public $upload_file ;
+    public $upload_file;
 
-	/**
-	 * Declares the validation rules.
-	 * The rules state that username and password are required,
-	 * and password needs to be authenticated.
-	 */
-	public function rules()
-	{
-		if(!isset($this->scenario))
-			$this->scenario = 'upload';
+    /**
+     * @param int $n
+     * @return mixed
+     */
+    public static function label($n = 1)
+    {
+        return Yii::t('app', 'File|Files', $n);
+    }
 
-		return array(
-				array('upload_file', 'required'),
-		);
-	}
+    /**
+     * Declares the validation rules.
+     * The rules state that username and password are required,
+     * and password needs to be authenticated.
+     */
+    public function rules()
+    {
+        if (null === $this->scenario)
+            $this->scenario = 'upload';
 
-	/**
-	 * Declares attribute labels.
-	 */
-	public function attributeLabels()
-	{
-		return array(
-				'upload_file'=>Module::t('backup', 'Загрузить'),
-		);
-	}
-	public static function label($n = 1) {
-		return Yii::t('app', 'File|Files', $n);
-	}
+        return array(
+            array('upload_file', 'required'),
+        );
+    }
+
+    /**
+     * Declares attribute labels.
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'upload_file' => Module::t('backup', 'Загрузить'),
+        );
+    }
 }

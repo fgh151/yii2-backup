@@ -33,7 +33,6 @@ Basic ```config/web.php```
 
 Advanced ```[backend|frontend|common]/config/main.php```
 
->
         'modules'    => [
             'backup' => [
                 'class' => 'fgh151\modules\backup\Module',
@@ -41,6 +40,18 @@ Advanced ```[backend|frontend|common]/config/main.php```
             ...
             ...
         ],
+        
+Console
+        ```php
+        'bootstrap' => ['backup'],
+        'modules' => [
+                'backup' => [
+                    'class' => 'fgh151\modules\backup\Module',
+                    'path' => '@backend/_backup/' //path alias of backup dir
+                ]
+            ],
+        ```
+        
 
 make sure you create a writable directory named _backup on app root directory.
 
@@ -50,7 +61,6 @@ RBAC
 You can use RBAC with module. Simply add it in your config:
 
 ```
->
         'modules'    => [
              'backup' => [
                  'class' => 'fgh151\modules\backup\Module',

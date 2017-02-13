@@ -83,7 +83,7 @@ class BackupController extends Controller
     {
         $this->file_name = $this->path . $this->back_temp_file . date('Y.m.d_H.i.s') . '.sql';
 
-        $this->fp = fopen($this->file_name, 'bw+');
+        $this->fp = fopen($this->file_name, 'w+');
 
         if ($this->fp === null) {
             return false;

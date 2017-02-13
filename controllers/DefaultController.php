@@ -77,7 +77,7 @@ class DefaultController extends Controller
     {
         $this->file_name = $this->path . $this->back_temp_file . date('Y.m.d_H.i.s') . '.sql';
 
-        $this->fp = fopen($this->file_name, 'bw+');
+        $this->fp = fopen($this->file_name, 'w+');
 
         if ($this->fp === null) {
             return false;
@@ -147,7 +147,14 @@ class DefaultController extends Controller
      */
     public function getData($tableName)
     {
-        $sql = 'SELECT * FROM ' . $tableName;
+        $driver = Yii::$app->db->getSchema()->db->driverName;
+
+        if ($driver === 'mysql') {
+            $sql = 'SELECT * FROM `' . $tableName . '`';
+        } else {
+            $sql = 'SELECT * FROM ' . $tableName;
+        }
+
         $cmd = Yii::$app->db->createCommand($sql);
         $dataReader = $cmd->query();
 

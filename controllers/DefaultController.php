@@ -383,7 +383,7 @@ class DefaultController extends Controller
         $list = $this->getFileList();
         $file = $list[$id];
         $this->updateMenuItems();
-        if (null === $file) {
+        if (null !== $file) {
             $sqlFile = $this->path . basename($file);
             if (file_exists($sqlFile)) {
                 $request = Yii::$app->response;
